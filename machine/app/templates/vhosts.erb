@@ -1,0 +1,51 @@
+<% node['app']['domains'].each do |domain| %>
+    <% node['app']['environments'].each do |env| %>
+
+        # HTTPS
+        <VirtualHost *:443>
+            AccessFileName  .htaccess
+
+            ServerName      localhost.<%= env %>.<%= domain %>
+            ServerAlias     *.localhost.<%= env %>.<%= domain %>
+
+            DocumentRoot    <%= node['app']['root_dir'] %>/public
+
+            <Directory "<%= node['app']['root_dir'] %>/public">
+                Options FollowSymLinks
+                AllowOverride All
+                <% if node['apache']['version'] == '2.4' -%>
+                    Require all granted
+                <% else -%>
+                    Order allow,deny
+                    Allow from all
+                <% end -%>
+            </Directory>
+
+            SSLEngine on
+            SSLCertificateFile      <%= node['app']['cert_dir'] %>/server.crt
+            SSLCertificateKeyFile   <%= node['app']['cert_dir'] %>/server.key
+        </VirtualHost>
+
+        # HTTP
+        <VirtualHost *:80>
+            AccessFileName  .htaccess
+
+            ServerName      localhost.<%= env %>.<%= domain %>
+            ServerAlias     *.localhost.<%= env %>.<%= domain %>
+
+            DocumentRoot    <%= node['app']['root_dir'] %>/public
+
+            <Directory "<%= node['app']['root_dir'] %>/public">
+                Options FollowSymLinks
+                AllowOverride All
+                <% if node['apache']['version'] == '2.4' -%>
+                    Require all granted
+                <% else -%>
+                    Order allow,deny
+                    Allow from all
+                <% end -%>
+            </Directory>
+        </VirtualHost>
+
+    <% end %>
+<% end %>

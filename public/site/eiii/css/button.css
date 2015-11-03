@@ -1,0 +1,30 @@
+.eiii_download {
+  padding: 15px;
+  display: inline-block;
+}
+
+.eiii_download p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.eiii_download div {
+  display: inline-block;
+}
+
+.eiii_download p:before {
+  content : url(/site/eiii/images/png/download_arrow.png);
+  margin: 0 5px  0 0;
+  position: relative;
+  top: 5px;
+}
+
+.eiii_download_bookmarklet {
+   background: url(/site/eiii/images/png/download.png) center no-repeat;
+   display: block;
+   height: 44px;
+   position: relative;
+   top: -12px;
+   text-indent: -9999em;
+   width: 188px;
+}

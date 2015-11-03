@@ -1,0 +1,615 @@
+/* red: #c44e60; */
+
+body div#SABM-main {
+margin: 0px !important;
+background: #fff !important;
+font-family: "Arial", sans-serif !important;
+font-size: 12px !important;
+color: #000 !important;
+width: 350px !important;
+padding: 0px 0px 0px 0px !important;
+border: 10px solid #fff !important;
+-webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.5) !important;
+-moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.5) !important;
+box-shadow: 0px 0px 15px rgba(0,0,0,0.5) !important;
+position: fixed !important;
+top: -600px;
+right: 100px !important;
+z-index: 99999999999999 !important;
+text-align: left !important;
+box-sizing: border-box !important;
+}
+
+body div#SABM-main * {
+box-sizing: border-box !important;
+}
+
+body div#SABM-main div {
+width: auto;
+}
+
+body div#SABM-bar {
+position: relative;
+width: 100% !important;
+height: 78px;
+cursor: move;
+background: #1F5F61 url(../images/SABM-logo.svg) no-repeat 9px 9px !important;
+background-size: 60px 60px !important;
+}
+
+body div#SABM-main div#SABM-bar.active, body div#SABM-main div#SABM-bar:active {
+background-color: #3b7575 !important;
+}
+
+	body div#SABM-main div#SABM-barhandle {
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	background: url(../images/SABM-draggable.png) no-repeat left top;
+	width: 14px;
+	height: 6px;
+	}
+
+div#SABM-main a img {
+border: none;
+}
+
+div#SABM-content {
+padding: 20px;
+}
+
+body div#SABM-main h1 {
+font-style: normal !important;
+font-weight: 300 !important;
+font-size: 26px !important;
+line-height: 30px;
+color: #fff !important;
+margin: 0px 0px 0px 0px !important;
+padding: 10px 0 5px 0px !important;
+font-family: Georgia, serif !important;
+text-align: left !important;
+background: none !important;
+-webkit-text-shadow: none !important;
+-moz-text-shadow: none !important;
+text-shadow: none !important;
+padding-left: 80px !important;
+}
+
+body div#SABM-main div#SABM-bar p {
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    margin: 0px 10px 0px 80px !important;
+    padding: 5px 0px !important;
+    line-height: 22px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
+    font-family: Georgia, serif !important;
+    color: #FFF !important;
+    -webkit-text-shadow: none !important;
+    -moz-text-shadow: none !important;
+    text-shadow: none !important;
+}
+
+body div#SABM-main h2, body div#SABM-content h2 {
+font-weight: bold !important;
+font-size: 14px !important;
+font-style: normal !important;
+margin: 0px 0px 0px 27px !important;
+line-height: 20px !important;
+padding: 0px !important;
+color: #000 !important;
+background: none !important;
+font-family: "Arial", sans-serif !important;
+text-transform: none !important;
+-webkit-text-shadow: none !important;
+-moz-text-shadow: none !important;
+text-shadow: none !important;
+}
+
+body div#SABM-content h2 {
+color: #000 !important;
+font-family: "Arial", sans-serif !important;
+font-style: italic !important;
+font-size: 20px !important;
+margin: 0px 0px 5px 0px !important;
+padding: 0px !important;
+font-weight: normal !important;
+text-transform: none !important;
+-webkit-text-shadow: none !important;
+-moz-text-shadow: none !important;
+text-shadow: none !important;
+}
+
+body div#SABM-main h2::-moz-selection { background: #ededed; }
+body div#SABM-main h2::-webkit-selection { background: #ededed; }
+body div#SABM-main h2::selection { background: #ededed; }
+
+body div#SABM-main div.SABM-trigger .SABM-status span::-moz-selection { background: #ededed; }
+body div#SABM-main div.SABM-trigger .SABM-status span::-webkit-selection { background: #ededed; }
+body div#SABM-main div.SABM-trigger .SABM-status span::selection { background: #ededed; }
+
+body div#SABM-main p, body div#SABM-content p {
+font-size: 13px !important;
+margin: 0px !important;
+padding: 0px !important;
+line-height: 21px !important;
+color: #000 !important;
+font-family: "Arial", sans-serif !important;
+-moz-text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8) !important;
+-webkit-text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8) !important;
+text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8) !important;
+}
+
+body div#SABM-content ul {
+margin: 0em 0em 20px 0em !important;
+}
+
+body div#SABM-main ul, body div#SABM-content ul {
+margin: 10px 0px;
+padding: 0px;
+font-size: 13px;
+}
+
+	body div#SABM-main ul li, body div#SABM-content ul li {
+	margin: 3px 0px 3px 15px !important;
+	padding: 0px !important;
+	line-height: 14px !important;
+	list-style: disc !important;
+	list-style-position: outside !important;
+	background: none !important;
+	}
+
+body div#SABM-content p {
+margin: 0px 0px 20px 0px;
+}
+
+div#SABM-main p a, div#SABM-content p a,
+div#SABM-main li a, div#SABM-content li a {
+text-decoration: underline;
+color: #0f275c;
+}
+
+div#SABM-main p a:hover, div#SABM-content p a:hover,
+div#SABM-main li a:hover, div#SABM-content li a:hover{
+text-decoration: underline;
+color: #0770ad;
+}
+
+div#SABM-main #SABM-indicator {
+padding-left: 22px;
+background: url(../images/SABM-loader.gif) no-repeat left 3px;
+}
+
+div#SABM-toolbox {
+padding: 0px;
+height: 370px;
+overflow-y: auto;
+overflow-x: hidden;
+position: relative;
+margin: 10px 0px 0px 0px;
+}
+
+div#SABM-main div.SABM-tool {
+background: #ededed;
+border: 1px solid #bec1c2; /*#dcd9d9;*/
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+margin: 0px 0px 7px 0px !important;
+position: relative;
+width: 328px;
+}
+
+	body div.SABM-home, body div.SABM-home.SABM-area-visible {
+		width: 330px !important;
+		height: 370px;
+		left: 0px;
+		display: block;
+		position: absolute;
+		-webkit-transition: left, 0.3s;
+		transition: left, 0.3s;
+	}
+
+	body div.SABM-detail, body div.SABM-detail.SABM-area-hidden {
+		position: absolute;
+		left: 330px;
+		width: 330px !important;
+		height: 370px;
+		padding: 0px 10px;
+		display: block;
+		-webkit-transition: left, 0.3s;
+		transition: left, 0.3s;
+	}
+
+		body div.SABM-detailContent h3 {
+			font-weight: normal !important;
+			font-family: "Georgia", sans-serif !important;
+			font-size: 20px !important;
+			margin: 10px 0px 0px 0px !important;
+			padding: 0px !important;
+			color: #1F5F61 !important;
+			-webkit-text-shadow: none !important;
+			-moz-text-shadow: none !important;
+			text-shadow: none !important;
+		}
+
+		body div#SABM-main div.SABM-detailContent p {
+			margin-top: 10px !important;
+		}
+
+		body div.SABM-detailContent ol {
+			margin: 0px 0px 0px 0px !important;
+			padding: 0px 0px 0px 18px !important;
+		}
+
+		body div.SABM-detailContent ol li {
+			margin: 0px 0px 10px 0px;
+			padding: 0px 0px 10px 0px;
+			border-bottom: 1px solid #e4e4e4;
+		}
+
+
+		body div#SABM-main div.SABM-statusBlock {
+			display: block;
+			padding: 5px 20px !important;
+			text-align: center !important;
+			background: #e4e4e4;
+			margin: 10px 0px !important;
+			webkit-border-radius: 10px;
+			border-radius: 10px;
+		}
+
+		body div.SABM-pass {
+			border: 1px solid #0b5908;
+			color: #0b5908;
+			font-weight: bold;
+			font-size: 14px;
+		}
+
+		body div.SABM-fail {
+			border: 1px solid #9c3537;
+			color: #9c3537;
+		}
+
+		body div.SABM-home.SABM-area-hidden {
+			left: -330px !important;
+		}
+
+		body div.SABM-detail.SABM-area-visible {
+			left: 0px !important;
+		}
+
+		body div.SABM-detail div.SABM-detailContent {
+			width: 310px !important;
+			height: 340px !important;
+			overflow: auto;
+			display: block;
+		}
+
+			body div#SABM-main a.SABM-backButton {
+				position: absolute;
+				left: 0px;
+				bottom: 0px;
+				padding: 5px 30px;
+				background: #ededed url(../images/SABM-backbutton.png) no-repeat 10px 50%;
+				background-size: 14px 13px;
+				border: 1px solid #dcd9d9;
+				display: block;
+				text-decoration: none;
+				font-weight: normal;
+				font-size: 12px;
+				color: #ae3346;
+				width: 330px;
+			}
+
+	div#SABM-main div.SABM-head {
+	display: block;
+	padding: 13px;
+	position: relative;
+	}
+
+		div#SABM-main div.SABM-head .SABM-status {
+		position: absolute;
+		right: 13px;
+		top: 13px;
+		height: 18px;
+		line-height: 20px;
+		}
+
+                    div#SABM-main .SABM-status.disabled span {
+                      display: block;
+                      padding: 0px 10px;
+                      color: #fff;
+                      text-transform: uppercase;
+                      text-decoration: none;
+                      font-weight: bold;
+                      background-color: #707070;
+                      border: 1px solid #707070;
+                      -moz-border-radius: 3px;
+                      -webkit-border-radius: 3px;
+                      border-radius: 3px;
+                      font-size: 12px;
+                      font-style: normal;
+                    }
+
+			div#SABM-main div.SABM-head a, div.SABM-foldout a.SABM-toolButton, div#SABM-main .SABM-downloadBtn {
+			display: block;
+			padding: 0px 10px;
+			color: #fff;
+			text-transform: uppercase;
+			text-decoration: none;
+			font-weight: bold;
+			background: #c44e60;
+			border: 1px solid #b23346;
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			}
+
+			div#SABM-main div.SABM-foldout a.SABM-toolButton {
+			height: 18px;
+			line-height: 20px;
+			width: 80px;
+			margin: 5px auto 0px;
+			display: block;
+			text-align: center;
+			padding: 0px;
+			}
+
+			div#SABM-main .SABM-downloadBtn {
+			height: 18px;
+			line-height: 20px;
+			width: 70px;
+			margin: 5px auto 0px;
+			padding: 0px 10px 0px 10px;
+			display: block;
+			font-size: 12px;
+			}
+
+			div.SABM-detail label {
+				margin: 15px 10px 10px 0px;
+			}
+
+			body div.SABM-detail button {
+				margin: 10px 5px 0px 0px;
+				border: none;
+				background: #c44e60;
+				color: #fff;
+				padding: 3px 5px;
+				-moz-border-radius: 3px;
+				-webkit-border-radius: 3px;
+				border-radius: 3px;
+				font-size: 12px;
+				cursor: pointer;
+				display: block;
+			}
+
+				div#SABM-main div.SABM-head a:hover, div#SABM-main div.SABM-foldout a.SABM-toolButton:hover, div#SABM-main .SABM-downloadBtn {
+				background: #b23346;
+				border: 1px solid #c44e60;
+				}
+
+				body div#SABM-main  div.SABM-head a.SABM-trigger {
+				width: 36px;
+				height: 36px;
+				position: absolute;
+				left: 3px;
+				top: 5px;
+				background: url(../images/SABM-trigger.png) no-repeat left top;
+				background-size: 12px 24px;
+				text-indent: -999em;
+				border: 12px solid #ededed;
+				padding: 0px;
+				margin: 0px;
+				outline: none;
+				display: block;
+				border-box: content-box !important;
+				}
+
+					div#SABM-main div.SABM-head a.SABM-trigger.open {
+					background-position: left bottom;
+					}
+
+			div#SABM-main div.SABM-status span {
+			padding-left: 17px;
+			font-size: 11px;
+			font-weight: bold;
+			font-style: italic;
+			color: #333;
+			}
+
+			div#SABM-main .SABM-loader {
+			position: relative;
+			top: 2px;
+			right: 23px;
+			}
+
+				div#SABM-main #SABM-w3cScan span.SABM-ok,
+				div#SABM-main #contrast span.SABM-ok				{
+				color: #679d1c !important;
+				background: url(../images/SABM-ok.png) no-repeat left top !important;
+				}
+
+				div#SABM-main #SABM-w3cScan span.SABM-ok a,
+				div#SABM-main #contrast span.SABM-ok a				{
+				color: #679d1c !important;
+				}
+
+				div#SABM-main #SABM-w3cScan span.SABM-not-ok {
+				color: #d8343a !important;
+				background: url(../images/SABM-not-ok.png) no-repeat left top !important;
+				}
+
+				div#SABM-main #SABM-w3cScan span.SABM-not-ok a {
+				color: #d8343a !important;
+				}
+
+
+	div#SABM-main div.SABM-foldout {
+	display: none;
+	padding: 8px 13px 13px 13px;
+	border-top: 1px solid #dcd9d9;
+	}
+
+		div#SABM-main div.SABM-explanation {
+		display: none;
+		position: absolute;
+		left: 20px;
+		background: #fff;
+		border: 1px solid red;
+		width: 170px;
+		height: 200px;
+		z-index: 2000000;
+		}
+
+.highlight {
+border: 1px solid #f00 !important;
+}
+
+p.highlight {
+border: 1px solid #00f !important;
+}
+
+.difficultWord {
+background: #afe2d0;
+}
+
+div#SABM-main p.SABM-leesniveau span {
+font-size: 22px;
+color: #333;
+display: block;
+text-align: center;
+margin: 15px 0px 0px 0px;
+font-weight: bold;
+}
+
+div#SABM-main textarea#SABM-textComplexitybox {
+width: 95%;
+padding: 5px;
+height: 100px;
+font-family: Arial, sans-serif;
+font-size: 11px;
+}
+
+div #SABM-main #SABM-leesniveauLink {
+display: block;
+clear: both;
+}
+
+#sb-title-inner,
+#sb-info-inner,
+#sb-loading-inner,
+div.sb-message {
+font-weight:200;
+color:#000;
+}
+#sb-container{
+position:fixed;
+margin:0;
+padding:0;
+top:0;
+left:0;
+z-index:99999999;
+text-align:left;
+visibility:hidden;
+display:none;
+}
+
+#sb-overlay{
+position:relative;
+height:100%;
+width:100%;
+}
+
+#sb-wrapper{
+position:absolute;
+visibility:hidden;
+width:100px;
+}
+
+#sb-wrapper-inner{
+position:relative;
+border: 20px solid rgba(0,0,0,0.2);
+overflow:hidden;
+height:100px;
+}
+
+#sb-body{
+position:relative;
+height:100%;
+}
+
+#sb-body-inner{
+position:absolute;
+height:100%;
+width:100%;
+color: #000;
+}
+
+#sb-player.html{
+height:100%;
+overflow:auto;
+color: #000;
+}
+
+#sb-body img{
+border:none;
+}
+
+#sb-loading{
+position:relative;
+height:100%;
+}
+
+#sb-loading-inner{
+position:absolute;
+font-size:14px;
+line-height:16px;
+height:16px;
+top:50%;
+margin-top:-8px;
+width:100%;
+text-align:center;
+}
+
+#sb-loading-inner span{
+background:url(../images/SABM-loader.gif) no-repeat;
+padding-left:24px;
+display:inline-block;
+}
+
+#sb-body,#sb-loading{
+background-color:#fff;
+}
+
+#sb-info,#sb-info-inner{
+height:20px;
+line-height:20px;
+}
+
+#sb-nav a{
+display:block;
+float:right;
+height:16px;
+width:16px;
+margin-left:3px;
+cursor:pointer;
+background-repeat:no-repeat;
+}
+
+#sb-nav-close{
+background-image:url(../images/SABM-close.png);
+}
+
+div.sb-message{
+font-size:12px;
+padding:10px;
+text-align:center;
+}
+
+div.sb-message a:link,div.sb-message a:visited{
+color:#fff;
+text-decoration:underline;
+}
+

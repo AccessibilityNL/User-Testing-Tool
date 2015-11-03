@@ -1,0 +1,83 @@
+network:
+  public:         false
+  name:           AccessibleCheck
+  domains:
+    - accessiblecheck.com
+  environments:   [dev]
+  subdomains:
+    - www
+box:
+  base:           ubuntu/trusty64
+  url:
+  gui:            false
+  memory:         2048
+  cpus:           2
+  update:         false
+apps:
+  install:
+    - app::essential
+    - app::apache
+    - app::php
+    - app::mysql
+    - app::laravel
+  apache:
+    modules:
+      - alias
+      - auth_basic
+      - authn_core
+      - authn_file
+      - authz_groupfile
+      - authz_host
+      - authz_user
+      - autoindex
+      - deflate
+      - dir
+      - env
+      - expires
+      - headers
+      - mime
+      - negotiation
+      - php5
+      - rewrite
+      - setenvif
+      - ssl
+      - status
+  php:
+    settings:
+      short_open_tag:       'Off'
+      date.timezone:        'Europe/Amsterdam'
+      memory_limit:         '512M'
+      post_max_size:        '128M'
+      file_uploads:         'On'
+      max_file_uploads:     '20'
+      upload_max_filesize:  '128M'
+      upload_tmp_dir:       '/tmp'
+      realpath_cache_size:  '16M'
+      realpath_cache_ttl:   '3600'
+      apc.shm_size:         '128M'
+      apc.num_files_hint:   '7000'
+      apc.ttl:              '3600'
+      apc.user_ttl:         '3600'
+      apc.max_file_size:    '5M'
+    packages:
+      - libapache2-mod-php5
+      - php-apc
+      - php-pear
+      - php5-cli
+      - php5-curl
+      - php5-dev
+      - php5-gd
+      - php5-intl
+      - php5-ldap
+      - php5-mcrypt
+      - php5-mysql
+  mysql:
+    version:        '5.5'
+    charset:        'utf8'
+    port:           '3306'
+    databases:
+      accessiblecheck_dev:
+        charset:    utf8
+        collate:    utf8_general_ci
+        username:   'accheck'
+        password:   'accheck'

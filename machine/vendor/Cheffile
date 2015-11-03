@@ -1,0 +1,9 @@
+site "https://supermarket.getchef.com/api/v1"
+
+cookbook 'acl'      , '1.0.2' # Essential
+cookbook 'apt'      , '2.6.0' # Essential
+cookbook 'curl'     , '2.0.1' # Essential
+cookbook 'git'      , '4.1.0' # Essential
+cookbook 'apache2'  , '3.0.0'
+cookbook 'php'      , '1.5.0'
+cookbook 'mysql'    , '6.0.6'

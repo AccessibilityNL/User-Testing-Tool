@@ -1,0 +1,87 @@
+body {
+  color: #1d1d1b;
+  font-size: 14px;
+  font-family: Verdana, Geneva, sans-serif;
+}
+a {
+  color: #347aa0;
+}
+a:hover {
+  color: #b73857;
+}
+h1,
+h2 {
+  color: #000000;
+  margin: 30px 0 0px 0;
+}
+p {
+  line-height: 1.5;
+}
+.container {
+  margin: 50px auto;
+  width: 600px;
+}
+.logo img {
+  width: 580px;
+}
+.content {
+  display: inline-block;
+}
+.download-image {
+    background: url(/site/eiii/images/png/download.png);
+    display: block;
+    height: 38px;
+    text-indent: -9999em;
+    width: 183px;
+    margin: 15px 0 25px 0;
+}
+.stats .col {
+  float: left;
+  margin: 15px 0 0 0;
+  width: 33.3333%;
+}
+.stats .downloads span:before {
+  content: url(/site/eiii/images/png/downloads.png);
+  display: block;
+  margin: 0 0 5px 0;
+}
+.stats .sites span:before {
+  content: url(/site/eiii/images/png/sites.png);
+  display: block;
+  margin: 0 0 5px 0;  
+}
+.stats .tests span:before {
+  content: url(/site/eiii/images/png/tests.png);
+  display: block;
+  margin: 0 0 5px 0;  
+}
+.stats p,
+.stats span {
+  display: block;
+  text-align: center;
+}
+.stats p {
+  margin: 5px 0 0 0;
+}
+.stats span {
+  font-weight: bold;
+}
+.footer {
+  border-top: 1px solid #1d1d1b;
+  font-size: 13px;
+  margin: 25px auto;
+  width: 600px;
+}
+.footer-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-menu li {
+  display: inline;
+  padding: 0 20px 0 0;
+}
+.footer-image {
+  display: block;
+  margin: 25px auto 0;
+}

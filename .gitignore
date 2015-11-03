@@ -1,0 +1,10 @@
+.env
+.vagrant
+.idea
+composer.phar
+/machine/vendor/*
+!/machine/vendor/Cheffile
+!/machine/vendor/Cheffile.lock
+/public/packages
+/public/images/uploads
+/vendor
