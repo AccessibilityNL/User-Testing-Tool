@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="49.375px" height="49.375px" viewBox="0 0 49.375 49.375" enable-background="new 0 0 49.375 49.375" xml:space="preserve">
+<g id="Layer_1">
+	<circle fill="#02B2D3" cx="24.422" cy="24.24" r="23"/>
+</g>
+<g id="Layer_13">
+	<g>
+		<defs>
+			<rect id="SVGID_1_" x="160.422" y="44.238" width="64" height="64"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  display="none" overflow="visible"/>
+		</clipPath>
+		<g clip-path="url(#SVGID_2_)">
+			<defs>
+				<rect id="SVGID_3_" x="160.422" y="44.238" width="64" height="64"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  display="none" overflow="visible"/>
+			</clipPath>
+			<path display="none" clip-path="url(#SVGID_4_)" fill="#77B3D4" d="M224.422,76.238c0,17.673-14.327,32-32,32s-32-14.327-32-32
+				s14.327-32,32-32S224.422,58.565,224.422,76.238"/>
+		</g>
+	</g>
+	<g opacity="0.2">
+		<g>
+			<defs>
+				<rect id="SVGID_5_" x="9.344" y="11.233" width="29.509" height="28.339"/>
+			</defs>
+			<clipPath id="SVGID_6_">
+				<use xlink:href="#SVGID_5_"  overflow="visible"/>
+			</clipPath>
+			<path clip-path="url(#SVGID_6_)" fill="#231F20" d="M37.658,22.411h-4.045h-4.535h-4.046h-4.537h-4.044H10.25v5.006v10.726
+				c0,0.79,0.64,1.43,1.431,1.43h25.743c0.789,0,1.43-0.64,1.43-1.43V27.417v-5.006H37.658z"/>
+			<path clip-path="url(#SVGID_6_)" fill="#231F20" d="M14.585,21.507l4.356-0.908l3.884-0.811l4.357-0.908l3.884-0.811l7.185-1.499
+				l-0.876-4.198c-0.162-0.774-0.919-1.27-1.692-1.109l-0.4,0.084l-3.884,0.81l-4.356,0.909l-3.884,0.811l-4.355,0.909l-3.884,0.81
+				l-4.436,0.925c-0.773,0.162-1.27,0.919-1.107,1.692l0.875,4.199l0.451-0.094L14.585,21.507z"/>
+		</g>
+	</g>
+	<path fill="#4F5D73" d="M10.25,25.986v10.726c0,0.791,0.64,1.431,1.431,1.431h25.743c0.79,0,1.43-0.64,1.43-1.431V25.986H10.25z"/>
+	<polygon fill="#4F5D73" points="10.25,20.981 10.25,25.986 11.447,25.986 16.452,20.981 	"/>
+	<polygon fill="#4F5D73" points="29.078,20.981 24.071,25.986 28.608,25.986 33.613,20.981 	"/>
+	<polygon fill="#4F5D73" points="20.496,20.981 15.491,25.986 20.027,25.986 25.032,20.981 	"/>
+	<polygon fill="#FFFFFF" points="16.452,20.981 11.447,25.986 15.491,25.986 20.496,20.981 	"/>
+	<polygon fill="#FFFFFF" points="25.032,20.981 20.027,25.986 24.071,25.986 29.078,20.981 	"/>
+	<polygon fill="#FFFFFF" points="33.613,20.981 28.608,25.986 32.653,25.986 37.658,20.981 	"/>
+	<polygon fill="#4F5D73" points="38.854,20.981 37.658,20.981 32.653,25.986 36.954,25.986 38.854,24.088 	"/>
+	<polygon fill="#FFFFFF" points="36.954,25.986 38.854,25.986 38.854,24.088 	"/>
+	<polygon fill="#4F5D73" points="18.802,13.354 14.585,20.076 18.942,19.169 23.158,12.446 	"/>
+	<polygon fill="#4F5D73" points="27.043,11.636 22.826,18.358 27.183,17.449 31.398,10.727 	"/>
+	<path fill="#4F5D73" d="M10.483,15.09c-0.773,0.162-1.27,0.919-1.107,1.691l0.875,4.2l0.451-0.094l4.217-6.723L10.483,15.09z"/>
+	<polygon fill="#FFFFFF" points="14.918,14.164 10.703,20.888 14.585,20.076 18.802,13.354 	"/>
+	<polygon fill="#FFFFFF" points="23.158,12.446 18.942,19.169 22.826,18.358 27.043,11.636 	"/>
+	<polygon fill="#FFFFFF" points="35.282,9.917 31.398,10.727 27.183,17.449 31.066,16.64 	"/>
+	<path fill="#4F5D73" d="M37.375,10.941c-0.162-0.773-0.919-1.27-1.692-1.108l-0.4,0.084l-4.216,6.723l4.367-0.91l2.206-3.519
+		L37.375,10.941z"/>
+	<polygon fill="#FFFFFF" points="37.64,12.211 35.434,15.729 38.251,15.141 	"/>
+	<g opacity="0.2">
+		<g>
+			<defs>
+				<rect id="SVGID_7_" x="8.821" y="20.267" width="4.29" height="4.29"/>
+			</defs>
+			<clipPath id="SVGID_8_">
+				<use xlink:href="#SVGID_7_"  overflow="visible"/>
+			</clipPath>
+			<path clip-path="url(#SVGID_8_)" fill="#231F20" d="M13.111,22.411c0,1.186-0.96,2.146-2.145,2.146
+				c-1.186,0-2.146-0.96-2.146-2.146c0-1.185,0.96-2.145,2.146-2.145C12.151,20.267,13.111,21.227,13.111,22.411"/>
+		</g>
+	</g>
+	<path fill="#4F5D73" d="M13.111,20.981c0,1.185-0.96,2.146-2.145,2.146c-1.186,0-2.146-0.961-2.146-2.146s0.96-2.146,2.146-2.146
+		C12.151,18.836,13.111,19.797,13.111,20.981"/>
+</g>
+</svg>
