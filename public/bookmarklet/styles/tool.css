@@ -295,25 +295,38 @@
     color                 : #FFFFFF !important;
     font-size             : 14px !important;
     line-height           : 20px !important;
-    padding               : 2px 0 0 25px !important;
     margin                : 0 !important;
     font-family           : Georgia, serif !important;
     text-align            : center !important;
     text-decoration       : underline !important;
     border                : 9px solid transparent !important;
 
-    background-image      : url('../images/home.svg') !important;
-    background-position   : left center !important;
-
     -webkit-border-radius : 0 0 0 3px !important;
     -moz-border-radius    : 0 0 0 3px !important;
     border-radius         : 0 0 0 3px !important;
+}
+
+#SABM > footer a.back
+{
+    padding               : 2px 0 0 25px !important;
+    background-image      : url('../images/home.svg') !important;
+    background-position   : left center !important;
+}
+
+#SABM > footer a.save
+{
+    font-weight: bold !important;
 }
 
 #SABM > footer a.disabled
 {
     opacity    : 0 !important;
     visibility : hidden !important;
+}
+
+#SABM > footer a.right
+{
+    float: right !important;
 }
 
 #SABM > footer a.logo
@@ -382,6 +395,12 @@
     border-left-width : 5px !important;
 }
 
+#SABM.compact > footer a.save:focus, #SABM.compact > footer a.save:active, #SABM.compact > footer a.save:hover
+{
+    border-left-width : 9px !important;
+    border-right-width : 5px !important;
+}
+
 #SABM.compact > footer a:focus
 {
     outline : 1px solid rgba(240, 72, 106, 0.5);
@@ -441,6 +460,16 @@
 #SABM > section div.page.nav-small
 {
     padding-bottom : 36px !important;
+}
+
+#SABM > section div.page.nav-medium
+{
+    padding-bottom : 51px !important;
+}
+
+#SABM > section div.page.nav-medium.progress
+{
+    padding-bottom : 86px !important;
 }
 
 #SABM > section div.page.no-nav
@@ -510,12 +539,14 @@
     border-radius         : 3px !important;
 }
 
-#SABM > section div.page p.answer
+#SABM > section div.page p.answer,
+#SABM > section div.page p.continue
 {
     text-align : center !important;
 }
 
-#SABM > section div.page p.answer a
+#SABM > section div.page p.answer a,
+#SABM > section div.page p.continue a
 {
     margin : 0 3px !important;
 }
@@ -611,6 +642,16 @@
     -ms-transform       : none;
     -o-transform        : none;
     transform           : none;
+}
+
+#SABM > section div.page p a.button.yes
+{
+    margin-right: 15px !important;
+}
+
+#SABM > section div.page p a.button.na
+{
+    margin: 15px !important;
 }
 
 #SABM > section div.page a.button.no.active
@@ -930,6 +971,44 @@
     min-height : 36px !important;
 }
 
+#SABM > section div.page.nav-medium > nav
+{
+    padding    : 10px 10px !important;
+    min-height : 51px !important;
+}
+
+#SABM > section div.page.nav-medium.progress > nav
+{
+    padding    : 45px 10px 10px 10px !important;
+    min-height : 86px !important;
+}
+
+#SABM > section div.page.nav-medium.progress > nav > div.progress
+{
+    line-height: 30px !important;
+    position: absolute !important;
+    top: 0 !important;
+    left : 0 !important;
+    width : 100% !important;
+    text-align : center !important;
+    padding: 10px 10px 5px 10px !important;
+    font-weight: bold !important;
+}
+
+#SABM > section div.page.nav-medium.progress > nav > div.progress > em
+{
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left : 0 !important;
+    height : 10px !important;
+    background: #288484 !important;
+
+    -webkit-transition       : 0.3s ease 0s !important;
+    -moz-transition          : 0.3s ease 0s !important;
+    transition               : 0.3s ease 0s !important;
+}
+
 #SABM > section div.page.active > nav
 {
     visibility         : visible !important;
@@ -952,6 +1031,13 @@
     margin      : 0 !important;
 }
 
+#SABM > section div.page.nav-medium > nav > a
+{
+    line-height : 20px !important;
+    padding     : 5px 15px !important;
+    margin      : 0 !important;
+}
+
 #SABM > section div.page.nav-small > nav > a
 {
     line-height : 15px !important;
@@ -959,12 +1045,22 @@
     margin      : 0 !important;
 }
 
-#SABM > section div.page > nav > a.button
+#SABM > section div.page > nav > a.button:first-child
 {
     float : left !important;
 }
 
 #SABM > section div.page > nav > a.button:last-child
+{
+    float : right !important;
+}
+
+#SABM > section div.page > nav > a.button.left
+{
+    float : left !important;
+}
+
+#SABM > section div.page > nav > a.button.right
 {
     float : right !important;
 }
@@ -1490,6 +1586,11 @@
     border-radius         : 3px !important;
 }
 
+#SABM > section div.page.headings.images ul li > a
+{
+    padding : 5px 32px 5px 5px !important;
+}
+
 #SABM > section div.page.headings ul li > a span
 {
     display     : block !important;
@@ -1549,6 +1650,10 @@
     -webkit-box-sizing    : border-box;
     -moz-box-sizing       : border-box;
     box-sizing            : border-box;
+}
+
+#SABM > section div.page.headings.images ul li > a:before{
+    display: none;
 }
 
 #SABM > section div.page.headings ul li > a:before
@@ -1667,6 +1772,46 @@
     -webkit-background-size : 95% !important;
     -moz-background-size    : 95% !important;
     background-size         : 95% !important;
+}
+
+/**
+ * Module Rating Input
+ */
+#SABM > section div.page.rating.input p.row
+{
+    text-align  : center !important;
+    padding : 25px 0 !important;
+}
+
+#SABM > section div.page.rating.input p.row .star
+{
+    background-color    : transparent !important;
+    background-image    : url('../images/rating.svg') !important;
+    background-size     : 40px auto !important;
+    background-position : 0 100% !important;
+    display             : inline-block;
+    width               : 40px !important;
+    height              : 40px !important;
+    margin              : 0 10px 0 0 !important;
+    font-size           : 0 !important;
+    vertical-align      : top !important;
+}
+
+#SABM > section div.page.rating.input p.row .star:hover,
+#SABM > section div.page.rating.input p.row .star:active,
+#SABM > section div.page.rating.input p.row .star:focus,
+#SABM > section div.page.rating.input p.row .star.selected
+{
+    transform : scale(1.25);
+}
+
+#SABM > section div.page.rating.input p.row .star:hover ~ .star,
+#SABM > section div.page.rating.input p.row .star:active ~ .star,
+#SABM > section div.page.rating.input p.row .star:focus ~ .star,
+#SABM > section div.page.rating.input p.row .star.selected ~ .star
+{
+    background-color    : transparent !important;
+    background-position : 0 0 !important;
 }
 
 /**

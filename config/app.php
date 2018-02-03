@@ -85,7 +85,7 @@ return [
       |
      */
 
-	'locales' => ['nl', 'en'],
+	'locales' => ['en'],
 
 	'locale' => env('APP_LOCALE', 'en'),
 

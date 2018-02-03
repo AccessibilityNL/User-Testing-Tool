@@ -15,7 +15,7 @@ class SiteController extends Controller
      * indexAction
      *
      * @param Request $request
-     * @author Zaid Sadhoe <zaid@10forward.nl>
+     * @author Zaid Sadhoe <z.m.f.sadhoe@gmail.com>
      */
     public function indexAction(Request $request)
     {

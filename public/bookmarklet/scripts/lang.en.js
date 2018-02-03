@@ -1,30 +1,33 @@
 var language = {
     // General
     toolTitle  : 'User Testing Tool',
-    toolTagline: 'EIII project',
+    toolTagline: 'You can help',
 
     info : 'About',
     close: 'Close',
 
     backToHome    : 'Back to home',
     backToOverview: 'Back to overview',
+    save: 'Save evaluation',
+    saved: 'Evaluation saved',
 
     // home page
     homeStart: 'Start analysis',
     homeDesc : [
-        'The EIII User Testing Tool (UTT) is designed for web accessibility evaluation. With this tool, you can evaluate some of the accessibility barriers that cannot be measured automatically and share your evaluation results with EIII.'
+        'The User Testing Tool (UTT) is designed for web accessibility evaluation. With this tool, you can evaluate some of the accessibility barriers that cannot be measured automatically and share your evaluation results.'
     ],
 
     // info page
     infoTitle   : 'About',
     infoVersion : 'Version: ',
-    infoDesc    : 'The EIII User Testing Tool (UTT) is designed for web accessibility evaluation. With this tool, you can evaluate some of the accessibility barriers that cannot be measured automatically and share your evaluation results with EIII.\nThis version will cover 2 tests that cannot easily be implemented for automatic checking. With this tool it is possible to evaluate page titles and the headings structure of a web page. Please note that this version is still a prototype.\nThe User Testing Tool is part of the European Internet Inclusion Initiative project. You can find more about the EIII project at the Project website.',
-    infoDescLink: 'http://www.eiii.eu',
-    infoAuthor  : 'EIII is co-funded under the European Union Seventh Framework Programme (Grant agreement no: 609667).',
+    infoDesc    : 'This User Testing Tool is designed for web accessibility evaluation. Help us evaluate some of the accessibility barriers that cannot be measured automatically. We need real users like you to make the web a better place! Help accessibility by giving feedback and rating web pages for accessibility.\nPlease note that this version is still a prototype.',
+    infoDescLink: 'https://www.accessibility.nl/utt',
+    infoAuthor  : '',
+    // infoAuthor  : 'EIII is co-funded under the European Union Seventh Framework Programme (Grant agreement no: 609667).',
     infoLinks   : {
-        'Project website': 'http://www.eiii.eu',
-        'Disclaimer': 'http://eiii.eu/disclaimer',
-        'Privacy': 'http://eiii.eu/privacy'
+        'Project website': 'https://www.accessibility.nl/utt',
+        'Disclaimer': 'https://www.accessibility.nl/utt',
+        'Privacy': 'https://www.accessibility.nl/utt'
     },
     faq         : {},
     faqLinks    : {},
@@ -88,6 +91,30 @@ var language = {
     headingsError_empty: 'This header is found, but it is empty',
     headingsError_order: 'The sequence of this header is incorrect. A [current] can not follow a [previous].',
 
+    // module poll page
+    pollTitle      : 'Feedback',
+    pollDesc       : 'Answer questions about the accessibility.',
+    pollPrevious   : 'Previous question',
+    pollNext       : 'Next question',
+    pollLast       : 'Finish',
+    pollProgress   : 'Question [index] of [total]',
+    pollInfoLink   : '#',
+    pollQuestions  : [
+        { title: 'Is the text on this page easy to understand?', yes: 'Yes', no: 'No'},
+        { title: 'Are there difficult words on this page?', yes: 'Yes', no: 'No', continueOn: 'yes', continue: 'Name some difficult words.'},
+        { title: 'Is the information on this page up to date?', yes: 'Yes', no: 'No', continueOn: 'no', continue: 'Is there a warning that the content is obsolete?', continueYes: 'Yes', continueNo: 'No'},
+        { title: 'Does the text have an introduction or summary part?', yes: 'Yes', no: 'No'},
+        { title: 'Is the website well displayed on a small screen?', yes: 'Yes', no: 'No', continueOn: 'no', continue: 'Which parts are not displayed?' },
+        { title: 'Can you navigate this page using only the keyboard?', yes: 'Yes', no: 'No', continueOn: 'no', continue: 'Which parts are not accessible?' },
+        { title: 'Is the focus of active elements visible?', yes: 'Yes', no: 'No', continueOn: 'no', continue: 'Which elements are not visible?' },
+        { title: 'If you resize the text, is it then necessary to scroll horizontally?', yes: 'Yes', no: 'No' },
+        { title: 'Does the video on this page have captions?', yes: 'Yes', no: 'No', detect: 'video' },
+        { title: 'Does the video on this page have audio descriptions?', yes: 'Yes', no: 'No', detect: 'video' }
+    ],
+
+    ratingTitle      : 'Rating',
+    ratingDesc       : 'How would you rate this page for usability?',
+
     pass      : 'Passed',
     fail      : 'Failed',
     disabled  : 'Disabled',
@@ -112,10 +139,15 @@ var language = {
     gtTitle: 'Gewoon Toegankelijk',
     gtIntro: 'data uit gewoon toegankelijk.',
 
-    // Image alt tester
-    imageAltTitle: 'Text alternatives for images',
-    imageAltDesc : 'This module helps you checks images for a description.',
-    imageAltInfo: 'This module helps you checks images for a description (alternative text). Not available.',
+    // module images page
+    image_altTitle          : 'Text alternatives for images',
+    image_altDesc           : 'This module checks images for a description.',
+    image_altInfo           : 'This module checks images for a description (alternative text).',
+    image_altInfoLink       : '#',
+    image_altQuestion       : 'Does the alternative text: "[TEXT]" describe the image below sufficient?',
+    image_altError_alt      : 'Alternative text is missing.',
+    image_altnoneTitle      : 'No images found',
+    image_altnoneDescription: 'This page contains no images and therefore automatically complies with the web guidelines of alternative texts for images.',
 
     // caption tester
     captionTitle: 	'Captions',

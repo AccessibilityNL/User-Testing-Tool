@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use App\Models\License;
+use Illuminate\Support\Facades\DB;
 
 class Member extends BaseModel
 {
@@ -12,10 +13,26 @@ class Member extends BaseModel
     protected $table = 'member';
 
     /** @var array The attributes that are mass assignable. */
-    protected $fillable = ['key', 'organization_id', 'type', 'title', 'first_name', 'last_name', 'email', 'phone', 'url', 'is_enabled'];
+    protected $fillable = [
+        'key',
+        'organization_id',
+        'type',
+        'title',
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'url',
+        'is_enabled',
+        'info',
+        'settings',
+    ];
+    
+    /** @var array The attributes that should be visible in arrays. */
+    protected $visible = ['id', 'key', 'rank', 'type', 'first_name', 'last_name', 'email', 'settings', 'info'];
 
     /** @var array The attributes that should be casted to native types. */
-    protected $casts = ['is_enabled' => 'boolean'];
+    protected $casts = ['is_enabled' => 'boolean', 'info' => 'array', 'settings' => 'array'];
 
     /** @var array The attributes default values. */
     protected $attributes = ['is_enabled' => true];
@@ -29,7 +46,7 @@ class Member extends BaseModel
     {
         parent::boot();
 
-        static::saving(function($item) {
+        static::saving(function ($item) {
             $item->key = $item->key;
         });
     }
@@ -40,6 +57,14 @@ class Member extends BaseModel
     public function licenses()
     {
         return $this->hasMany('App\Models\MemberLicense');
+    }
+
+    /**
+     * The evaluation relation
+     */
+    public function evaluations()
+    {
+        return $this->hasMany('App\Models\Evaluation');
     }
 
     /**
@@ -54,6 +79,31 @@ class Member extends BaseModel
      * Get the user's key
      *
      * @param string $value
+     *
+     * @return string
+     */
+    public function getInfoAttribute($value)
+    {
+        return ($value ? json_decode($value, true) : array('impairments' => ['']));
+    }
+
+    /**
+     * Get the user's key
+     *
+     * @param string $value
+     *
+     * @return string
+     */
+    public function getSettingsAttribute($value)
+    {
+        return ($value ? json_decode($value, true) : array('popup' => 50, 'popup_enabled' => true));
+    }
+
+    /**
+     * Get the user's key
+     *
+     * @param string $value
+     *
      * @return string
      */
     public function getKeyAttribute($value)
@@ -65,6 +115,7 @@ class Member extends BaseModel
      * Set the user's key
      *
      * @param string $value
+     *
      * @return string
      */
     public function setKeyAttribute($value)
@@ -73,6 +124,16 @@ class Member extends BaseModel
     }
 
     /**
+     * Set the user's key
+     * @param string $value
+     * @return string
+     */
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = ($value ? $value : null);
+    }
+    
+    /**
      * Auto set the users license
      *
      * @param string $licenseID
@@ -80,7 +141,7 @@ class Member extends BaseModel
     public function createAutoLicense($licenseID)
     {
         if ($licenseID) {
-            $license  = static::getAutoLicense($licenseID);
+            $license = static::getAutoLicense($licenseID);
 
             if (!$this->hasLicense() && $license) {
                 $startDate = new Carbon();
@@ -93,10 +154,20 @@ class Member extends BaseModel
                     'is_validated' => 1,
                     'description'  => 'Auto License',
                     'starts_at'    => $startDate,
-                    'ends_at'      => $endDate
+                    'ends_at'      => $endDate,
                 ]);
             }
         }
+    }
+
+    /**
+     * Check for valid license
+     */
+    public function hasAccess()
+    {
+        $OrganizationAccess = ($this->organization ? $this->organization->hasAccess() : true);
+
+        return ($this->is_enabled && ($this->hasLicense() || $OrganizationAccess) ? true : false);
     }
 
     /**
@@ -110,7 +181,7 @@ class Member extends BaseModel
             ->where('starts_at', '<=', Carbon::now())
             ->where(function ($query) {
                 $query->where('ends_at', null)
-                      ->orWhere('ends_at', '>=', Carbon::now());
+                    ->orWhere('ends_at', '>=', Carbon::now());
             })
             ->count();
 
@@ -118,16 +189,38 @@ class Member extends BaseModel
     }
 
     /**
+     * Check for valid license
+     *
+     * @return License
+     */
+    public function getLicense()
+    {
+        $license = $this->licenses()
+            ->where('is_enabled', 1)
+            ->where('is_validated', 1)
+            ->where('starts_at', '<=', Carbon::now())
+            ->where(function ($query) {
+                $query->where('ends_at', null)
+                    ->orWhere('ends_at', '>=', Carbon::now());
+            })
+            ->first();
+
+        return ($license ? $license : ($this->organization ? $this->organization->getLicense() : null));
+    }
+
+    /**
      * Auto set the users license
      *
      * @param string $licenseID
+     *
+     * @return License
      */
     public static function getAutoLicense($licenseID)
     {
         $license = null;
 
         if ($licenseID) {
-            $license  = License::where(['slug' => $licenseID])->first();
+            $license = License::where(['slug' => $licenseID])->first();
         }
 
         return $license;

@@ -28,12 +28,15 @@ new (function () {
 
     var $ = null;
 
+    var poll = new Module.poll();
+
     var modules = {
         'title'      : {icon: 'icon-paginatitel.svg', status: 'incomplete', view: getModuleTitlePage},
         'headings'   : {icon: 'icon-koppen.svg', status: 'incomplete', items: [], view: getModuleHeadingsPage},
+        poll         : {icon: 'icon-rating.svg', status: poll.status, items: [], view: poll.viewQuestion},
         //'brokenlinks': {icon: 'icon-gebrokenlink.svg', status: 'pass', items: [], view: getModuleBrokenLinksPage},
         //'readlevel'  : {icon: 'icon-leesniveau.svg', status: 'incomplete', view: getModuleReadLevelPage},
-        'imageAlt'   : {icon: 'icon-images.svg', status: 'disabled', view: null},
+        'image_alt'  : {icon: 'icon-images.svg', status: 'incomplete', items: [], view: getModuleImagesPage},
         'caption'    : {icon: 'icon-navigation.svg', status: 'disabled', view: null}
     };
 
@@ -225,31 +228,31 @@ new (function () {
     }
 
     function unbindElements(el) {
-        $(el).unbind('mouseover')
-            .unbind('mouseout')
-            .unbind('click');
+        // $(el).unbind('mouseover')
+        //     .unbind('mouseout')
+        //     .unbind('click');
     };
 
     function elementCheck() {
-        $(divSelection).on({
-            'mouseover': function () {
-                $(this).addClass('highlight');
-                return false;
-            },
-            'mouseout': function () {
-                $(this).removeClass('highlight');
-                return false;
-            },
-            'click': function () {
-                var content = $(this).text()
-                    .trim()
-                    .replace(/\t/g, '')
-                    .replace(/[ ]{2,}/ig, '')
-                    .replace(/[\n\r]{3,}/ig, '\n\n');
-                $('#SABM #text').val(content).focus();
-                return false;
-            }
-        });
+        // $(divSelection).on({
+        //     'mouseover': function () {
+        //         $(this).addClass('highlight');
+        //         return false;
+        //     },
+        //     'mouseout': function () {
+        //         $(this).removeClass('highlight');
+        //         return false;
+        //     },
+        //     'click': function () {
+        //         var content = $(this).text()
+        //             .trim()
+        //             .replace(/\t/g, '')
+        //             .replace(/[ ]{2,}/ig, '')
+        //             .replace(/[\n\r]{3,}/ig, '\n\n');
+        //         $('#SABM #text').val(content).focus();
+        //         return false;
+        //     }
+        // });
     };
 
     function titleTest() {
@@ -340,6 +343,49 @@ new (function () {
         });
     }
 
+    function imagesTest()
+    {
+        modules.image_alt.status = 'pass';
+
+        images.each(function(index, value)
+        {
+            // get type of element and value of element
+            var el    = $(this);
+            var image = {
+                el    : el,
+                status: 'incomplete',
+                width : el[0].clientWidth,
+                height: el[0].clientHeight,
+                alt   : this.getAttribute('alt'),
+                hidden: (el.css('display') === 'none' || el.css('visibility') === 'hidden'),
+                src   : (el.attr('data-src') && el.attr('data-src').toString() !== '' ? el.attr('data-src') : this.src)
+            };
+
+            if (!image.hidden && (image.width > 101 || image.height > 101)) {
+                if (image.alt === null) {
+                    modules.image_alt.status = image.status = 'fail';
+                    modules.image_alt.error = image.error = 'alt';
+                    addResult('image', 'alt', 'fail', image.src);
+                } else {
+                    // else: #pass
+                    image.status = previousResultStatus('image', 'feedback', image.src, image.alt);
+                    image.error  = null;
+
+                    addResult('image', 'all', 'pass', image.src, image.alt);
+                    addResult('image', 'feedback', image.status, image.src, image.alt);
+                }
+
+                if (image.status === 'fail') {
+                    modules.image_alt.status = 'fail';
+                } else if (modules.image_alt.status !== 'fail' && image.status === 'incomplete') {
+                    modules.image_alt.status = 'incomplete';
+                }
+
+                modules.image_alt.items.push(image);
+            }
+        });
+    }
+
     function brokenLinksTest(callback)
     {
         var urls = [];
@@ -406,6 +452,7 @@ new (function () {
         // run test and prepare feedback per test
         titleTest();
         headingTest();
+        imagesTest();
         //brokenLinksTest(updateOverviewPage);
 
         showProgress();
@@ -420,13 +467,13 @@ new (function () {
             self.showPage(pages.home, false, false);
         }
 
-        unbindElements(divSelection);
+        // unbindElements(divSelection);
     };
 
-    this.showPage = function(page, compact, back)
-    {
+    this.showPage = function (page, compact, back) {
         if (page) {
             var backButton = layout.find('>footer>a.back');
+            var saveButton = layout.find('>footer>a.save');
 
             // show or hide back button
             if (back) {
@@ -441,40 +488,42 @@ new (function () {
                 backButton.addClass('disabled');
             }
 
+            saveButton.text(language.save);
+
             // show compact mode
             (compact ? layout.addClass('compact') : layout.removeClass('compact'));
 
             // make current page active
-            setTimeout(function()
-            {
+            setTimeout(function () {
                 layout.find('.page.active').removeClass('active');
                 page.addClass('active');
             }, 50);
 
             // make first element of page get focus
-            setTimeout(function()
-            {
+            setTimeout(function () {
                 page.find('a, textarea, section img').first().focus();
             }, 1000);
         }
     };
 
     function showProgress() {
-        var link = pages.home.find('a');
-        var text = link.find('span');
-        var path = link.find('path');
+        var link   = pages.home.find('a');
+        var text   = link.find('span');
+        var circle = link.find('circle');
+
+        circle.attr('stroke-width', '0.5');
 
         var settings = {value: 0, end: 1};
         var step = function () {
-            var ratio = (settings.value === 1 ? 0.99999 : settings.value);
-
-            var rad = ratio * (Math.PI * 2);
-            var x = 10 + (Math.sin(-rad) * 9);
-            var y = 10 + (Math.cos(-rad) * 9);
             var newValue = Math.round(settings.value * 100);
 
+            var length = (18 * Math.PI);
+            var start  = ((settings.value < 0.75 ? 0 : (settings.value - 0.75) * 4) * (length * 0.25));
+            var gap    = (length * 0.25) - start;
+            var size   = (settings.value * length) - start;
+
             text.text(newValue + '%');
-            path.attr('d', 'M10,19  A9,9 0 ' + (ratio > 0.5 ? '1' : '0' ) + ',1 ' + x + ',' + y);
+            circle.attr('stroke-dasharray', start + ' ' + gap + ' ' + size + ' ' + length);
         };
 
         link.addClass('active');
@@ -517,12 +566,14 @@ new (function () {
             + ' <section></section>'
             + ' <footer>'
             + '     <a href="#" tabindex="1" title="' + language.backToHome + '" class="back disabled">' + language.backToHome + '</a>'
+            + '     <a href="#" tabindex="1" title="' + language.save + '" class="save right">' + language.save + '</a>'
             + ' </footer>'
             + '</div>');
 
         layout.find('.close').on('click', function(e){ self.close();e.preventDefault(); });
         layout.find('.info').on('click', function(e){ self.showPage(getInfoPage(), true, true);e.preventDefault(); });
         layout.find('.back').on('click', function(e){ self.showPreviousPage();e.preventDefault(); });
+        layout.find('.save').on('click', function(e){ e.currentTarget.innerText = language.saved;e.preventDefault(); });
 
         return layout;
     }
@@ -538,7 +589,7 @@ new (function () {
                 + '             <img src="' + sitepath + '/images/progress.svg" alt="' + language.homeStart + '" width="20" height="20"/>'
                 + '             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20">'
                 + '                 <title>' + language.homeStart + '</title>'
-                + '                 <path d="M10,19 A9,9 0 1,0 10,19" stroke="rgba(183, 56, 87, 1)" stroke-width="0.5" fill="none"></path>'
+                + '                 <circle stroke="rgba(255, 255, 255, 0.5)" stroke-width="0" fill="none" r="9" cx="10" cy="10" stroke-dasharray="0 14.13717 0 57"></circle>'
                 + '             </svg>'
                 + '         </a>'
                 + '     </p>'
@@ -599,7 +650,7 @@ new (function () {
             layout.find('>section').prepend(pages.info);
         }
 
-        unbindElements(divSelection);
+        // unbindElements(divSelection);
 
         return pages.info;
     }
@@ -708,7 +759,7 @@ new (function () {
     function getModulePage(el) {
         var module = modules[el.parentNode.className];
 
-        return (module.view ? module.view() : null);
+        return (module.view ? module.view(layout.find('>section'), language, sitepath, modules, addResult, sendResults, updateOverviewPage, self.showPage, self.showPreviousPage) : null);
     }
 
     function getModuleTitlePage() {
@@ -859,6 +910,112 @@ new (function () {
         updateOverviewPage();
     }
 
+    function getModuleImagesPage() {
+        if (!pages.moduleImages) {
+            var content = '';
+
+            if(modules.image_alt.items.length){
+                content = '<ul>';
+
+                for (var a = 0; a < modules.image_alt.items.length; a++) {
+                    var item     = modules.image_alt.items[a];
+                    var previous = modules.image_alt.items[a - 1];
+
+                    if (item.error != null) {
+                        subcontent = '<p>' + language['image_altError_' + item.error].replace('[current]', item.type).replace('[previous]', (previous ? previous.type : '')) + '</p>';
+                        subcontent = subcontent + '<img src="'+item.src+'" height="30px">';
+                    } else {
+                        subcontent = '<p>' + language.image_altQuestion.replace('[TEXT]', item.alt) + '</p>'
+                            + '<p class="answer">'
+                            + ' <a class="button yes ' + (item.status == 'pass' ? 'active' : '') + '" href="#" title="' + language.yes + '" tabindex="1">' + language.yes + '</a>'
+                            + ' <a class="button no ' + (item.status == 'fail' ? 'active' : '') + '" href="#" title="' + language.no + '" tabindex="1">' + language.no + '</a>'
+                            + '</p>'
+                            + '<img src="' + item.src + '">'
+                    }
+
+                    content += '<li data-id="' + a + '" class="' + item.type + ' ' + a + ' ' + (item.status != 'pass' ? 'active' : '') + '">'
+                        + '  <a href="#" title="' + item.alt + '" tabindex="1">'
+                        + '      <span>' + (item.alt ? item.alt : '&nbsp;') + '</span>'
+                        + '      <em></em>'
+                        + '  </a>'
+                        + '  <div>'
+                        + subcontent
+                        + '  </div>'
+                        + '</li>';
+                }
+
+                content += '</ul>';
+            } else{
+                content = '<p><strong>' + language.image_altnoneTitle + '</strong></p>'
+                    + '<p>' + language.image_altnoneDescription + '</p>';
+            }
+
+            pages.moduleImages = $('<div class="page headings images nav-medium">'
+                + ' <header>'
+                + '     <h2>' + language.image_altTitle + '</h2>'
+                + '     <p>' + language.image_altDesc + '</p>'
+                + '     <img src="' + sitepath + '/images/' + modules.image_alt.icon + '" alt="' + language.image_altTitle + '" width="20" height="20"/>'
+                + ' </header>'
+                + ' <section>'
+                + content
+                + ' </section>'
+                + ' <nav>'
+                + '     <p>' + language.image_altInfo.replace(/\[([^\]]+)\]/ig, '<a href="' + language.image_altInfoLink + '" title="$1" tabindex="1">$1</a>') + '</p>'
+                + ' </nav>'
+                + '</div>');
+
+            pages.moduleImages.find('li>a').on('click', function (e){ $(this).parent().toggleClass('active');e.preventDefault(); });
+            pages.moduleImages.find('.answer a').on('click', function (e) {
+                var el = $(this);
+                var item = el.parent().parent().parent();
+                var data = modules.image_alt.items[item.attr('data-id')];
+
+                data.status = (el.hasClass('yes') ? 'pass' : 'fail');
+
+                item.find('.answer a').removeClass('active');
+                el.addClass('active');
+
+                item.removeClass('active');
+
+                addResult('image', 'feedback', data.status, data.src, data.alt);
+                sendResults();
+
+                updateModuleImagesPage();
+                e.preventDefault();
+            });
+
+            updateModuleImagesPage();
+
+            layout.find('>section').append(pages.moduleImages);
+        }
+
+        return pages.moduleImages;
+    }
+
+    function updateModuleImagesPage() {
+        modules.image_alt.status = 'pass';
+
+        for (var a = 0; a < modules.image_alt.items.length; a++) {
+            var data = modules.image_alt.items[a];
+            var item = pages.moduleImages.find('li.' + a);
+
+            item.removeClass('pass fail incomplete')
+                .addClass(data.status);
+
+            item.find('em')
+                .text(language[data.status])
+                .attr('title', language[data.status]);
+
+            if (data.status == 'fail') {
+                modules.image_alt.status = 'fail';
+            } else if (modules.image_alt.status !== 'fail' && data.status == 'incomplete') {
+                modules.image_alt.status = data.status;
+            }
+        }
+
+        updateOverviewPage();
+    }
+
     function getModuleBrokenLinksPage() {
         if (!pages.moduleBrokenLinks) {
             var content = '';
@@ -965,7 +1122,7 @@ new (function () {
             layout.find('>section').append(pages.moduleReadLevel);
         }
 
-        elementCheck();
+        // elementCheck();
 
         return pages.moduleReadLevel;
     }
@@ -995,7 +1152,7 @@ new (function () {
 
         layout.find('>section').append(pages.moduleReadLevelResult);
 
-        unbindElements(divSelection);
+        // unbindElements(divSelection);
 
         var level = pages.moduleReadLevelResult.find('p#level').attr('data-level').substr(0, 2);
         level     = modules.readlevel.status < level || modules.readlevel.status === 'incomplete' ? level : modules.readlevel.status;

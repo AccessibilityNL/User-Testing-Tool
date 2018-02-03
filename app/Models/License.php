@@ -25,6 +25,7 @@ class License extends BaseModel
         static::saving(function($item)
         {
             $item->key = hash('sha512', microtime().rand());
+            $item->slug = ($item->slug ? $item->slug : str_replace(' ', '_', strtolower($item->name)));
         });
     }
 
@@ -34,5 +35,13 @@ class License extends BaseModel
     public function memberLicenses()
     {
         return $this->hasMany('App\Models\MemberLicense');
+    }
+
+    /**
+     * The MemberLicense relation
+     */
+    public function organizationLicenses()
+    {
+        return $this->hasMany('App\Models\OrganizationLicense');
     }
 }

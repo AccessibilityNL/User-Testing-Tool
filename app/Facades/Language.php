@@ -36,5 +36,7 @@ class Language extends Facade
         $locale = in_array($locale, Config::get('app.locales')) ? $locale : Config::get('app.locale');
 
         Lang::setLocale($locale);
+
+        setLocale(LC_ALL, 'en_US.utf8');
     }
 }

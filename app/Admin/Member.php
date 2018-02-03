@@ -8,7 +8,7 @@ Admin::model('App\Models\Member')
     ->alias('member')
     ->display(function () {
         $display = AdminDisplay::datatablesAsync();
-        $display->order([[0, 'asc']]);
+        $display->order([[9, 'desc']]);
 
         $display->columns([
             Column::checkbox(),

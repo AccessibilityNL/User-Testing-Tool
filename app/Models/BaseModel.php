@@ -15,7 +15,7 @@ class BaseModel extends Model
      * @param string $value The value column in the resulting array
      * @return Array The array containing the list
      *
-     * @author Zaïd Sadhoe <zaid@10forward.nl>
+     * @author Zaïd Sadhoe <z.m.f.sadhoe@gmail.com>
      */
     public static function listTranslated($prefix = '', $key = 'id', $value = 'name')
     {
