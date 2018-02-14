@@ -24,11 +24,11 @@ This document contains information on the JSON results.
       "webpage": {
         "id": 993,
         "scheme": "http",
-        "host": "nda.ie",
+        "host": "domain.com",
         "path": "\/",
         "query": "",
         "fragment": "",
-        "url": "http:\/\/domain.com\/",
+        "url": "http:\/\/domain.com\/path/at/?query#hash",
         "description": null,
         "is_enabled": true,
         "created_at": "2017-10-12 15:31:25",
