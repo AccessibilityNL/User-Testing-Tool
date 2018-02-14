@@ -7,7 +7,7 @@ This document contains information on the JSON results.
 ```
 {
   "error": 0,
-  "description": "https://github.com/AccessibilityNL/User-Testing-Tool/blob/master/readme.md",
+  "description": "https://github.com/AccessibilityNL/User-Testing-Tool/blob/master/results.md",
   "data": [
     {
       "ip": "XXX.XXX.XXX.XXX",
